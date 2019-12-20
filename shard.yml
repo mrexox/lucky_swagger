@@ -12,7 +12,10 @@ license: MIT
 dependencies:
   swagger:
     github: icyleaf/swagger
-    
+
+  habitat:
+    github: luckyframework/habitat
+
 # development_dependencies:
 #   webmock:
 #     github: manastech/webmock.cr
