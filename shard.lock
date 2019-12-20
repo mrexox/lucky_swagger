@@ -1,0 +1,6 @@
+version: 1.0
+shards:
+  swagger:
+    github: icyleaf/swagger
+    version: 0.1.0
+

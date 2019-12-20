@@ -1,0 +1,18 @@
+name: lucky-api-swagger
+version: 0.1.0
+
+authors:
+  - Valentine Kiselev <mrexox@yahoo.com>
+
+description: |
+  Swagger api applet for Lucky Framework
+
+license: MIT
+
+dependencies:
+  swagger:
+    github: icyleaf/swagger
+    
+# development_dependencies:
+#   webmock:
+#     github: manastech/webmock.cr
