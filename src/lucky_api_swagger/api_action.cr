@@ -26,10 +26,12 @@ module LuckyApiSwagger
       end
     end
 
-    define_action :get
-    define_action :post
-    define_action :patch
-    define_action :put
-    define_action :delete
+    macro included
+      define_action :get
+      define_action :post
+      define_action :patch
+      define_action :put
+      define_action :delete
+    end
   end
 end
