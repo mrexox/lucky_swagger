@@ -11,7 +11,7 @@ license: MIT
 
 dependencies:
   swagger:
-    github: icyleaf/swagger
+    github: mrexox/swagger
 
   habitat:
     github: luckyframework/habitat

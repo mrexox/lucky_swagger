@@ -7,7 +7,7 @@ module LuckyApiSwagger
       block.call
     end
 
-    get "/lol", "Hi", {hi: 2}  do
+    get "/lol", "Hi", {hi: 2} do
       puts 2
     end
   end

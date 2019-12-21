@@ -1,3 +1,4 @@
+require "swagger/http/handler"
 require "swagger/http/handlers/api"
 
 module LuckyApiSwagger
