@@ -25,7 +25,7 @@ module LuckyApiSwagger
 
       def self.build_action(method : Symbol, params : Hash)
         action = LuckyApiSwagger::ActionObject.new(method, params)
-        @@action_store << action
+        LuckyApiSwagger::ActionStore.add(action)
         action
       end
 

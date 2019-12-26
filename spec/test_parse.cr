@@ -21,5 +21,5 @@ class AnotherApiAction
     error 404, "Not found"
   end
 
-  print @@action_store
+  print LuckyApiSwagger::ActionStore.swag_store
 end
