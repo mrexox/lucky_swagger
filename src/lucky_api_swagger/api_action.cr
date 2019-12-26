@@ -1,30 +1,32 @@
-require "./action_store"
 require "./action_object"
 
 module LuckyApiSwagger
-
   # Include this module in src/actions/api_action.cr
   module ApiAction
     private macro define_action(method)
       def self.{{method.id}}(uri : String, description : String, params : NamedTuple?, &block)
         parameters = params || NamedTuple.new
 
-        build_action(
+        with build_action(
           {{method}},
-          parameters.merge(
-            uri: uri,
-            description: description
-          ),
-          &block
-        )
+          parameters.to_h.merge(
+            {
+              :uri => uri,
+              :description => description,
+              :authorization => true
+            }
+          )
+        ) yield
       end
     end
 
     macro included
-      def self.build_action(method : Symbol, params : NamedTuple?, &block)
-        action = ActionObject.new(method, params)
-        action.apply(&block)
-        ActionStore.add(action)
+      @@action_store = [] of LuckyApiSwagger::ActionObject
+
+      def self.build_action(method : Symbol, params : Hash)
+        action = LuckyApiSwagger::ActionObject.new(method, params)
+        @@action_store << action
+        action
       end
 
       define_action :get
