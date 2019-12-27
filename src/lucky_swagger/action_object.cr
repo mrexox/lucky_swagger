@@ -1,6 +1,6 @@
 require "./errors"
 
-module LuckyApiSwagger
+module LuckySwagger
   class ActionObject
     getter params : SwaggerParams
 

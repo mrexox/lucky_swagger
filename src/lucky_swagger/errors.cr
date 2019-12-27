@@ -1,4 +1,4 @@
-module LuckyApiSwagger
+module LuckySwagger
   class CodeExists < Exception
     getter code
 

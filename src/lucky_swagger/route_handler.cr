@@ -1,14 +1,14 @@
 require "swagger/http/handler"
 require "swagger/http/handlers/api"
 
-module LuckyApiSwagger
+module LuckySwagger
   # A handler is to be inserted in lucky's src/app_server.cr
   #
   # Example:
   #    def middleware : Array(HTTP::Handler)
   #      [
   #       ...
-  #       LuckyApiSwagger::RouteHandler.new,
+  #       LuckySwagger::RouteHandler.new,
   #       ...
   #      ]
   #    end

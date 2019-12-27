@@ -1,6 +1,6 @@
 require "./action_object"
 
-module LuckyApiSwagger
+module LuckySwagger
   # Include this module in src/actions/api_action.cr
   module ApiAction
     private macro define_action(method)
@@ -21,11 +21,11 @@ module LuckyApiSwagger
     end
 
     macro included
-      @@action_store = [] of LuckyApiSwagger::ActionObject
+      @@action_store = [] of LuckySwagger::ActionObject
 
       def self.build_action(method : Symbol, params : Hash)
-        action = LuckyApiSwagger::ActionObject.new(method, params)
-        LuckyApiSwagger::ActionStore.add(action)
+        action = LuckySwagger::ActionObject.new(method, params)
+        LuckySwagger::ActionStore.add(action)
         action
       end
 

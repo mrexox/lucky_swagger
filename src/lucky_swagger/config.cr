@@ -1,6 +1,6 @@
 require "habitat"
 
-module LuckyApiSwagger
+module LuckySwagger
   # TODO: add examples
   Habitat.create do
     setting title : String = "Swagger"
