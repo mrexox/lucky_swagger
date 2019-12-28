@@ -1,7 +1,7 @@
-require "./lucky_api_swagger/*"
+require "./lucky_swagger/*"
 require "./version"
 
-module LuckyApiSwagger
+module LuckySwagger
   def build
     # TODO: run builder for Swagger
   end

@@ -1,0 +1,31 @@
+version: 2
+
+jobs:
+  test:
+    docker:
+      - image: crystallang/crystal:0.31.1
+
+    steps:
+      - run: crystal --version
+
+      - checkout
+
+      - run: shards
+
+      - run:
+          info: Testing
+          command: crystal spec
+
+      - run:
+          info: Linting
+          command: bin/ameba
+
+      - run:
+          info: Run examples
+          command: crystal examples/example_*.cr
+
+workflows:
+  version: 2
+  ci:
+    jobs:
+      - test

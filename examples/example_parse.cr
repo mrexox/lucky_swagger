@@ -1,7 +1,7 @@
-require "../src/lucky_api_swagger"
+require "../src/lucky_swagger"
 
 class SomeApiAction
-  include LuckyApiSwagger::ApiAction
+  include LuckySwagger::ApiAction
 
   get "/users", "Get user by id", {authorization: false} do
     param :id, "Path"
@@ -12,7 +12,7 @@ class SomeApiAction
 end
 
 class AnotherApiAction
-  include LuckyApiSwagger::ApiAction
+  include LuckySwagger::ApiAction
 
   get "/posts", "Get posts", {authorization: false} do
     param :id, "Another path"
@@ -21,5 +21,5 @@ class AnotherApiAction
     error 404, "Not found"
   end
 
-  print LuckyApiSwagger::ActionStore.swag_store
+  print LuckySwagger::ActionStore.swag_store
 end
