@@ -10,7 +10,17 @@ jobs:
 
       - checkout
 
-      - run: shards
+      - restore_cache:
+         keys:
+           - shardscache-{{ checksum "shard.yml" }}
+
+      - run: shards --verbose
+
+      - save_cache:
+          key: shardscache-{{ checksum "shard.yml" }}
+          paths:
+            - lib/
+            - bin/
 
       - run:
           info: Testing
