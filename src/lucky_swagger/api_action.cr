@@ -4,7 +4,7 @@ module LuckySwagger
   # Include this module in src/actions/api_action.cr
   module ApiAction
     private macro define_action(method)
-      def self.{{method.id}}(uri : String, description : String, params : NamedTuple?, &block)
+      def self.{{method.id}}(uri : String, description : String, params : NamedTuple? = nil, &block)
         parameters = params || NamedTuple.new
 
         with build_action(

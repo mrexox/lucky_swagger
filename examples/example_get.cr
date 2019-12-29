@@ -1,9 +1,9 @@
-require "../src/lucky_swagger/api_action"
+require "../src/lucky_swagger"
 
-module LuckyApiSwagger
-  module ApiAction
-    include
-    get "/lol", "Hi"do
+module LuckySwagger
+  module Fa
+    include ApiAction
+    get "/lol", "Hi" do
       puts 2
     end
   end
