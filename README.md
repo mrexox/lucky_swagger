@@ -10,7 +10,7 @@ Add to your shards.yml file:
 
 ```
 development_dependencies:
-  lucky_swagger:
+  lucky-swagger:
     github: mrexox/lucky-swagger
 ```
 
