@@ -12,12 +12,12 @@ jobs:
 
       - restore_cache:
          keys:
-           - shardscache-{{ checksum "shard.yml" }}
+           - shardscache-{{ checksum "shard.lock" }}
 
       - run: shards --verbose
 
       - save_cache:
-          key: shardscache-{{ checksum "shard.yml" }}
+          key: shardscache-{{ checksum "shard.lock" }}
           paths:
             - lib/
             - bin/

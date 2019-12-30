@@ -11,14 +11,15 @@ license: MIT
 
 dependencies:
   swagger:
-    github: mrexox/swagger
+    github: icyleaf/swagger
 
   habitat:
     github: luckyframework/habitat
 
 development_dependencies:
-#  webmock:
-#    github: manastech/webmock.cr
   ameba:
     github: crystal-ameba/ameba
     version: ~> 0.11.0
+
+#  webmock:
+#    github: manastech/webmock.cr

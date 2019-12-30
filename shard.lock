@@ -9,6 +9,6 @@ shards:
     version: 0.4.3
 
   swagger:
-    github: mrexox/swagger
+    github: icyleaf/swagger
     version: 0.1.1
 
