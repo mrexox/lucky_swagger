@@ -32,7 +32,7 @@ jobs:
 
       - run:
           info: Run examples
-          command: crystal examples/example_*.cr
+          command: LUCKY_SWAGGER_ENABLED=true crystal examples/example_*.cr
 
 workflows:
   version: 2
