@@ -3,6 +3,22 @@ require "./action_object"
 module LuckySwagger
   # Include this module in src/actions/api_action.cr
   module ApiAction
+    macro included
+      @@action_store = [] of LuckySwagger::ActionObject
+
+      def self.build_action(method : Symbol, params : Hash)
+        action = LuckySwagger::ActionObject.new(method, params)
+        LuckySwagger::ActionStore.add(action)
+        action
+      end
+
+      swagger_method :get
+      swagger_method :post
+      swagger_method :patch
+      swagger_method :put
+      swagger_method :delete
+    end
+
     private macro swagger_method(method)
       def self.{{method.id}}(uri : String, description : String, params : NamedTuple? = nil, &block)
         {% if env("LUCKY_SWAGGER_ENABLED") %}
@@ -22,25 +38,6 @@ module LuckySwagger
           # Do nothing
         {% end %}
       end
-    end
-
-
-
-
-    macro included
-      @@action_store = [] of LuckySwagger::ActionObject
-
-      def self.build_action(method : Symbol, params : Hash)
-        action = LuckySwagger::ActionObject.new(method, params)
-        LuckySwagger::ActionStore.add(action)
-        action
-      end
-
-      swagger_method :get
-      swagger_method :post
-      swagger_method :patch
-      swagger_method :put
-      swagger_method :delete
     end
   end
 end

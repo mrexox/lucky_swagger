@@ -18,7 +18,9 @@ module LuckySwagger
       INSTANCE.add(action)
     end
 
-    def self.swag_store
+    # Provides public access to action objects that need
+    # to be handled
+    def self.swagger_actions
       INSTANCE.store
     end
   end
