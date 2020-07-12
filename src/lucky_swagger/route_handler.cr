@@ -15,7 +15,7 @@ module LuckySwagger
   class RouteHandler < Swagger::HTTP::APIHandler
     # TODO: customize swagger_path using settings
     private def swagger_path
-      "/v#{Swagger::OPENAPI_MAJAR_VERSION}/swagger.json"
+      "/v#{Swagger::OPENAPI_MAJOR_VERSION}/swagger.json"
     end
   end
 end
