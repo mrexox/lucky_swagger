@@ -1,5 +1,3 @@
-[![CircleCI](https://circleci.com/gh/mrexox/lucky-swagger.svg?style=svg)](https://circleci.com/gh/mrexox/lucky-swagger)
-
 # lucky-swagger
 
 A Swagger API router for [Lucky framework](https://github.com/luckyframework/lucky)
