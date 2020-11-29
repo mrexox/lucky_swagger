@@ -5,17 +5,6 @@ module LuckySwagger
   class Middleware
     getter api_handler, web_handler
 
-    # Use it in your src/app_server.cr:
-    #
-    #   swagger = LuckySwagger::Middleware.new
-    #   ..
-    #   [
-    #     # Right before Lucky::RouteNotFoundHandler.new
-    #     swagger.api_handler,
-    #     swagger.web_handler,
-    #
-    #     Lucky::RouteNotFoundHandler.new
-    #   ]
     def initialize
       settings = LuckySwagger.settings
       builder = Swagger::Builder.new(
@@ -33,10 +22,9 @@ module LuckySwagger
       Lucky::Router.routes.each do |route|
         controllers.unshift(
           Swagger::Action.new(
-          method: route.method.to_s, route: route.path, responses: [
-            Swagger::Response.new("200", "Success response")
-          ]
-        ))
+            method: route.method.to_s, route: route.path, responses: [
+            Swagger::Response.new("200", "Success response"),
+          ]))
       end
       builder.add(Swagger::Controller.new("All", "All endpoints", controllers))
 
