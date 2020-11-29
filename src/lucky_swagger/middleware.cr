@@ -1,3 +1,6 @@
+require "swagger"
+require "swagger/http/handler"
+
 module LuckySwagger
   class Middleware
     getter api_handler, web_handler
