@@ -18,15 +18,22 @@ module LuckySwagger
       )
 
       # Add routes
-      controllers = [] of Swagger::Action
+      controllers = Hash(String, Array(Swagger::Action)).new
       Lucky::Router.routes.each do |route|
-        controllers.unshift(
+        scopes = route.action.to_s.split("::")
+        scope = scopes.first
+        description = scopes[1..].join(" ")
+        controllers[scope] ||= [] of Swagger::Action
+        controllers[scope].unshift(
           Swagger::Action.new(
-            method: route.method.to_s, route: route.path, responses: [
+          method: route.method.to_s, route: route.path, description: description, responses: [
             Swagger::Response.new("200", "Success response"),
           ]))
       end
-      builder.add(Swagger::Controller.new("All", "All endpoints", controllers))
+
+      controllers.each do |scope, actions|
+        builder.add(Swagger::Controller.new(scope, "", actions))
+      end
 
       host = Lucky::ServerSettings.host
       port = Lucky::ServerSettings.port
